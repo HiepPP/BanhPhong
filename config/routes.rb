@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'bachuc/login'
+
   root 'home#index'
   get 'trang-chu' => "home#index"
 
