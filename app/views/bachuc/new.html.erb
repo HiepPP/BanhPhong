@@ -1,0 +1,27 @@
+<%= stylesheet_link_tag '/assets/login.css' %>
+<div class="container">
+  <div class="wrapper">
+    <%= form_for @user, :html => {:class => 'form-signin'}, :url => {:action => 'create'} do |f| %>
+        <!-- <form action="" method="post" name="Login_Form" class="form-signin"> -->
+        <h3 class="form-signin-heading">New</h3>
+        <hr class="colorgraph">
+        <br>
+        <% if flash[:message] != nil %>
+            <%= flash[:message] %>
+        <% end %>
+        <% if @user.errors.full_messages.any? %>
+            <% @user.errors.full_messages.each do |error_message| %>
+                <%= error_message if @user.errors.full_messages.first == error_message %> <br />
+            <% end %>
+        <% end %>
+        <!--  <input type="text" class="form-control" name="Username" placeholder="Username" required="" autofocus="" /> -->
+        <%= f.text_field :username, placeholder: "Username", required: "", autofocus: "", class: "form-control" %>
+        <!-- <input type="password" class="form-control" name="Password" placeholder="Password" required=""/> -->
+        <%= f.text_field :password, type: "password", placeholder: "password", required: "", autofocus: "", class: "form-control" %>
+        <%= text_field(:passcode, :title, size: 20, placeholder: "passcode", class: 'form-control') %>
+        <br/>
+        <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit">Đăng nhập</button>
+        <!-- </form> -->
+    <% end %>
+  </div>
+</div>

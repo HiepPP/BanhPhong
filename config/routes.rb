@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'bachuc/login'
-
+  get 'bachuc/new'
+  post '/bachuc/create'
   root 'home#index'
   get 'trang-chu' => "home#index"
 
@@ -36,7 +37,7 @@ Rails.application.routes.draw do
   #     resources :comments, :sales
   #     resource :seller
   #   end
-
+resource :users
   # Example resource route with more complex sub-resources:
   #   resources :products do
   #     resources :comments
